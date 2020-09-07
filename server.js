@@ -2,9 +2,11 @@ var express = require('express');
 var app = express();
 
 app.get('/', (req, res) => {
-	res.send('<h1>Hello World</h1>');
+	res.send('Hello World');
 })
 
 app.listen(8080, () => {
 	console.log('llego una request');
 });
+
+module.exports = app;
