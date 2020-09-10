@@ -14,7 +14,7 @@ app.get('/about', (req, res) => {
 
 //for git webhook
 app.post('/payload', (req, res) => {
-	res.json(req.body.read);
+	res.send(JSON.parse(req.body.read));
 });
 
 app.listen(80, () => {
