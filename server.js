@@ -1,7 +1,8 @@
 var express = require('express');
+var bodyParser = require("body-parser");
 var app = express();
 
-app.use(express.json());
+app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
 	res.send('Hello World');
@@ -14,7 +15,8 @@ app.get('/about', (req, res) => {
 
 //for git webhook
 app.post('/payload', (req, res) => {
-	res.send(JSON.parse(req.body));
+	console.log(req.body);
+	res.status(200).end();
 });
 
 app.listen(80, () => {
