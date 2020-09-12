@@ -13,12 +13,6 @@ app.get('/about', (req, res) => {
 });
 
 
-//for git webhook
-app.post('/payload', (req, res) => {
-	console.log(req.body);
-	res.status(200).end();
-});
-
 app.listen(80, () => {
 	console.log('llego una request');
 });
