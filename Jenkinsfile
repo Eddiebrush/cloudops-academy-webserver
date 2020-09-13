@@ -8,8 +8,8 @@ pipeline {
         DEPLOY_CONTAINER = "deploy_container"
 
         //Dockerhub Auth
-        HUB_USERNAME = edgarandresflores
-        HUB_PASSWORD = cloudops-academy
+        HUB_USERNAME = "edgarandresflores"
+        HUB_PASSWORD = "cloudops-academy"
         
         
     }
@@ -34,7 +34,7 @@ pipeline {
                     sh 'sudo cp -r . /build/'
                     def image = docker.build("build_image/latest", "/build_phase")
                     sh 'docker tag build_image/latest ${REGISTRY}'
-                    sh 'docker run --rm --name ${BUILD_CONTAINER} -v build:/build/ build_image/latest').trim()
+                    sh 'docker run --rm --name ${BUILD_CONTAINER} -v build:/build/ build_image/latest'
                     sh 'docker login -u ${HUB_USERNAME} -p ${HUB_PASSWORD}'
                     sh 'docker push edgarandresflores/build_image'
                     archiveArtifacts artifacts: '*', fingerprint: true
