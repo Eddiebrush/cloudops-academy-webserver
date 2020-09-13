@@ -9,9 +9,7 @@ pipeline {
 
         //Dockerhub Auth
         HUB_USERNAME = "edgarandresflores"
-        HUB_PASSWORD = "cloudops-academy"
-        
-        
+        HUB_PASSWORD = "cloudops-academy"       
     }
     agent any
     stages {
@@ -25,8 +23,6 @@ pipeline {
                 }
             }
         }
-        
-
         stage('build_phase') {
             steps {
                 checkout([$class: 'GitSCM', branches: [[name: 'master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'GitLFSPull']], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Eddiebrush/cloudops-academy-webserver']]])
