@@ -25,7 +25,7 @@ pipeline {
         }
         stage('build_phase') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: 'master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'GitLFSPull']], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Eddiebrush/cloudops-academy-webserver']]])
+                checkout([$class: 'GitSCM', branches: [[name: 'master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'GitLFSPull']], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/cloudopsacademy-2020/cloudops-academy-webserver']]])
                 script { 
                     sh 'sudo cp -r . /build/'
                     def image = docker.build("build_image/latest", "/build_phase")
