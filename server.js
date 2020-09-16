@@ -9,7 +9,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/about', (req, res) => {
-res.send('<h1>CloudOps-Academy</h1>');
+res.send('<h1>CloudOps-Academy!</h1>');
 });
 
 
